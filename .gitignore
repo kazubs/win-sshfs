@@ -18,3 +18,7 @@ TestResults
 /Sshfs/Packages.dgml
 /Sshfs/packages
 *.prev
+
+#Rider Settings
+.idea
+

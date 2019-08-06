@@ -294,9 +294,8 @@ namespace Sshfs
             {
                 throw new Exception("Drive with the same letter exists");
             }
-
-
-               Status = DriveStatus.Mounting;
+            
+            Status = DriveStatus.Mounting;
 
             try
             {

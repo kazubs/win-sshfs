@@ -1497,7 +1497,7 @@ namespace Sshfs
         }
 
         NtStatus IDokanOperations.GetVolumeInformation(out string volumeLabel, out FileSystemFeatures features,
-                                                         out string filesystemName, DokanFileInfo info)
+                                                         out string filesystemName, out uint maximumComponentLength, DokanFileInfo info)
         {
             LogFSActionInit("GetVolumeInformation", this._volumeLabel, (SftpContext)info.Context, "");
 
@@ -1508,6 +1508,7 @@ namespace Sshfs
             features = FileSystemFeatures.CasePreservedNames | FileSystemFeatures.CaseSensitiveSearch |
                        FileSystemFeatures.SupportsRemoteStorage | FileSystemFeatures.UnicodeOnDisk | FileSystemFeatures.SequentialWriteOnce;
             //FileSystemFeatures.PersistentAcls
+            maximumComponentLength = 256;
 
             LogFSActionSuccess("GetVolumeInformation", this._volumeLabel, (SftpContext)info.Context, "FS:{0} Features:{1}", filesystemName, features);
             return NtStatus.Success;
